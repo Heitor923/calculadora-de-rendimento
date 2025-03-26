@@ -1,0 +1,57 @@
+/* Custom CSS */
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    margin-bottom: 20px;
+  }
+  
+  .container {
+    max-width: 800px;
+  }
+  
+  h2, h3 {
+    color: #0056b3;
+    font-weight: 600;
+  }
+  
+  #calculadora {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  #calculadora input, #calculadora select {
+    border-radius: 5px;
+  }
+  
+  #resultado {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  #rendimentos {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #17a2b8;
+  }
+  
+  button {
+    font-size: 1.1rem;
+    border-radius: 5px;
+  }
+  
+  @media (max-width: 767px) {
+    .container {
+      padding: 15px;
+    }
+  
+    h2, h3 {
+      font-size: 1.2rem;
+    }
+  }
+  

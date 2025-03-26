@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Investimentos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Investimentos</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#" id="calcLink" onclick="mostrarCalculadora()">Calculadora</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="expLink" onclick="mostrarExplicacoes()">Explicações</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Seção Calculadora -->
+  <div class="container mt-4" id="calculadora">
+    <h2 class="mb-4 text-center">Simulador de Investimentos</h2>
+    <div class="mb-3">
+      <label for="valor" class="form-label">Valor Investido (R$):</label>
+      <input type="number" id="valor" class="form-control" placeholder="Ex: 180000">
+    </div>
+    <div class="mb-3">
+      <label for="taxa" class="form-label">Taxa do CDI (% do CDI):</label>
+      <input type="number" id="taxa" class="form-control" step="0.01" placeholder="Ex: 97">
+    </div>
+    <div class="mb-3">
+      <label for="tempo" class="form-label">Tempo de Investimento:</label>
+      <input type="number" id="tempo" class="form-control" placeholder="Ex: 1">
+    </div>
+    <div class="mb-3">
+      <label for="unidade" class="form-label">Unidade de Tempo:</label>
+      <select id="unidade" class="form-select">
+        <option value="mes">Mês</option>
+        <option value="ano">Ano</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="investimento" class="form-label">Tipo de Investimento:</label>
+      <select id="investimento" class="form-select">
+        <option value="cdb">CDB</option>
+        <option value="lca_lci">LCA/LCI</option>
+        <option value="tesouro_direto">Tesouro Direto</option>
+        <option value="poupanca">Poupança</option>
+      </select>
+    </div>
+    <button onclick="calcularRendimento()" class="btn btn-success w-100">Calcular</button>
+
+    <div class="mt-4">
+      <h3 id="resultado" class="text-center"></h3>
+      <div id="rendimentos" class="alert alert-info text-center" role="alert">
+        Os resultados aparecerão aqui.
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção Explicações -->
+  <div class="container mt-4 d-none" id="explicacao">
+    <h2 class="text-center">Explicação dos Tipos de Investimentos</h2>
+    <div class="alert alert-light">
+      <h5><strong>CDB (Certificado de Depósito Bancário)</strong></h5>
+      <p>O CDB é um título de renda fixa emitido por bancos, que acompanha o CDI (Certificado de Depósito Interbancário). O rendimento do CDB é fixado na hora da aplicação, podendo ser prefixado, pós-fixado ou atrelado a algum índice (como o CDI). O CDB é garantido pelo FGC (Fundo Garantidor de Crédito), o que o torna seguro. O imposto de renda é cobrado sobre os rendimentos, com alíquotas regressivas conforme o tempo de aplicação.</p>
+      <p><strong>Tributação do Imposto de Renda:</strong> Regra regressiva:
+        <ul>
+          <li>Até 180 dias: 22,5%</li>
+          <li>De 181 até 360 dias: 20%</li>
+          <li>De 361 até 720 dias: 17,5%</li>
+          <li>Acima de 720 dias: 15%</li>
+        </ul>
+      </p>
+    </div>
+    <div class="alert alert-light">
+      <h5><strong>LCA/LCI (Letra de Crédito do Agronegócio / Letra de Crédito Imobiliário)</strong></h5>
+      <p>A LCA e a LCI são títulos de renda fixa emitidos por bancos e são isentos de Imposto de Renda, o que pode ser um atrativo para o investidor. Elas têm como lastro o agronegócio (LCA) ou o mercado imobiliário (LCI). Contudo, elas geralmente oferecem um rendimento um pouco abaixo de outros investimentos como o CDB. A rentabilidade pode ser prefixada ou pós-fixada (atrelada ao CDI).</p>
+    </div>
+    <div class="alert alert-light">
+      <h5><strong>Tesouro Direto</strong></h5>
+      <p>O Tesouro Direto é um programa do governo federal que permite a compra de títulos públicos pela pessoa física. Os títulos podem ter rentabilidade prefixada, atrelada à inflação (IPCA) ou à taxa Selic. É uma opção segura, pois o risco é do governo federal, considerado o menor risco de crédito. Porém, assim como o CDB, os rendimentos são tributados pelo Imposto de Renda, com alíquotas regressivas.</p>
+      <p><strong>Tributação do Imposto de Renda:</strong> Semelhante ao CDB, com alíquotas regressivas de IR.</p>
+    </div>
+    <div class="alert alert-light">
+      <h5><strong>Poupança</strong></h5>
+      <p>A Poupança é um dos investimentos mais tradicionais no Brasil, sendo isenta de Imposto de Renda. O rendimento é fixo e varia de acordo com a taxa Selic: 
+        <ul>
+          <li>Se a Selic estiver abaixo de 8,5% ao ano, a poupança rende 70% da Selic + TR.</li>
+          <li>Se a Selic estiver acima de 8,5% ao ano, a poupança rende 0,5% ao mês + TR.</li>
+        </ul>
+      </p>
+      <p>É uma opção de baixo risco, mas a rentabilidade é muito inferior em relação a outras opções de investimento, como o CDB ou Tesouro Direto.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
