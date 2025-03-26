@@ -1,13 +1,13 @@
 // Função para exibir a seção de Calculadora e ocultar a de Explicações
 function mostrarCalculadora() {
-    document.getElementById('calculadora').style.display = 'block';  // Exibe a calculadora
-    document.getElementById('explicacao').style.display = 'none';   // Esconde as explicações
+    document.getElementById('calculadora').classList.remove('d-none');  // Exibe a calculadora
+    document.getElementById('explicacao').classList.add('d-none');     // Esconde as explicações
   }
   
   // Função para exibir a seção de Explicações e ocultar a de Calculadora
   function mostrarExplicacoes() {
-    document.getElementById('calculadora').style.display = 'none';   // Esconde a calculadora
-    document.getElementById('explicacao').style.display = 'block';   // Exibe as explicações
+    document.getElementById('calculadora').classList.add('d-none');    // Esconde a calculadora
+    document.getElementById('explicacao').classList.remove('d-none');  // Exibe as explicações
   }
   
   // Função para calcular o rendimento
@@ -62,17 +62,3 @@ function mostrarCalculadora() {
       ? `Rendimento: R$ ${rendimento.toFixed(2)}`
       : `Bruto: R$ ${rendimento.toFixed(2)}<br> Líquido: R$ ${rendimentoLiquido.toFixed(2)}`;
   }
-  function mostrarCalculadora() {
-      // Esconde a seção de explicações
-      document.getElementById('explicacao').classList.add('d-none');
-      // Exibe a seção da calculadora
-      document.getElementById('calculadora').classList.remove('d-none');
-  }
-  
-  function mostrarExplicacoes() {
-      // Esconde a seção de calculadora
-      document.getElementById('calculadora').classList.add('d-none');
-      // Exibe a seção de explicações
-      document.getElementById('explicacao').classList.remove('d-none');
-  }
-  
