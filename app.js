@@ -27,7 +27,7 @@ function calcularRendimento() {
   // Taxas reais do mercado
   const CDI_ANUAL = 14.15; // CDI médio anual (%)
   const SELIC = 14.25; // Selic atual (%)
-  const trBacen = 0.1709
+  const trBacen = 0.1709;
   
   let tempoTotal = unidade === "mes" ? tempo : tempo * 12; // Convertendo para meses, se necessário
   let montante;
@@ -52,9 +52,9 @@ function calcularRendimento() {
 
   let rendimento = montante - valor;
 
-  // Imposto de Renda apenas para CDB e Tesouro Direto
+  // Imposto de Renda apenas para CDB
   let aliquotaIR = 0;
-  if (investimento === "cdb" || investimento === "tesouro_direto") {
+  if (investimento === "cdb") {
       if (tempoTotal <= 180) {
           aliquotaIR = 0.225; // 22,5%
       } else if (tempoTotal <= 360) {
