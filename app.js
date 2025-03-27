@@ -1,13 +1,13 @@
 // Função para exibir a seção de Calculadora e ocultar a de Explicações
 function mostrarCalculadora() {
   document.getElementById('calculadora').classList.remove('d-none');  // Exibe a calculadora
-  document.getElementById('explicacao').classList.add('d-none');     // Esconde as explicações
+  document.getElementById('Sobre Investimentos').classList.add('d-none');     // Esconde as explicações
 }
 
 // Função para exibir a seção de Explicações e ocultar a de Calculadora
-function mostrarExplicacoes() {
+function mostrarESobreInvestimentos() {
   document.getElementById('calculadora').classList.add('d-none');    // Esconde a calculadora
-  document.getElementById('explicacao').classList.remove('d-none');  // Exibe as explicações
+  document.getElementById('Sobre Investimentos').classList.remove('d-none');  // Exibe as Sobre Investimentos
 }
 
 // Função para calcular o rendimento
@@ -18,16 +18,16 @@ function calcularRendimento() {
   const unidade = document.getElementById("unidade").value;
   const investimento = document.getElementById("investimento").value;
 
-  // Validação de entrada
+
   if (isNaN(valor) || isNaN(taxaCDI) || isNaN(tempo) || valor <= 0 || taxaCDI <= 0 || tempo <= 0) {
       alert("Preencha todos os campos corretamente com valores positivos.");
       return;
   }
 
-  // Taxas reais do mercado
-  const CDI_ANUAL = 14.15; // CDI médio anual (%)
-  const SELIC = 14.25; // Selic atual (%)
-  const trBacen = 0.1709;
+  //cdi, slic e bacen
+  const CDI_ANUAL = 14.15; //CDI médio anual (%)
+  const SELIC = 14.25; //Selic(%)
+  const trBacen = 0.1709;//tr (%)
   
   let tempoTotal = unidade === "mes" ? tempo : tempo * 12; // Convertendo para meses, se necessário
   let montante;
