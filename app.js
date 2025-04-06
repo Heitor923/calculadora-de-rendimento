@@ -24,7 +24,7 @@ function mostrarCalculadora() {
     }
   
     // CDI, Selic e Bacen
-    const CDI_ANUAL = 14.15; // CDI médio anual (%)
+    const CDI_ANUAL = 10.70; // CDI médio anual (%)
     const SELIC = 14.25; // Selic (%)
     const trBacen = 0.1709; // tr (%)
     
