@@ -24,7 +24,7 @@ function mostrarCalculadora() {
     }
   
     // CDI, Selic e Bacen
-    const CDI_ANUAL = 11.2; // CDI médio anual (%)
+    const taxaDI = 14.15; // CDI médio anual (%)
     const SELIC = 14.25; // Selic (%)
     const trBacen = 0.1709; // tr (%)
     
@@ -43,7 +43,7 @@ function mostrarCalculadora() {
         montante = valor * Math.pow(1 + taxaPoupanca, tempoTotal);
     } else {
         // Rendimento baseado no CDI
-        let taxaAnualDecimal = (taxaCDI / 100) * (CDI_ANUAL / 100); // taxa anual em decimal
+        let taxaAnualDecimal = (taxaCDI / 100) * (taxaDI / 100); // taxa anual em decimal
         let taxaMensal = Math.pow(1 + taxaAnualDecimal, 1 / 12) - 1; // Convertendo para taxa mensal
   
         montante = valor * Math.pow(1 + taxaMensal, tempoTotal);
