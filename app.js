@@ -25,7 +25,7 @@ function mostrarCalculadora() {
   
     // CDI, Selic e Bacen
     const taxaDI = 14.15; // CDI médio anual (%)
-    const SELIC = 14.25; // Selic (%)
+    const SELIC = 14.75; // Selic (%)
     const trBacen = 0.1709; // tr (%)
     
     let tempoTotal = unidade === "mes" ? tempo : tempo * 12; // Convertendo para meses, se necessário
